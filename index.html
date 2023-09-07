@@ -33,12 +33,14 @@
     }
 
     function r(){
-	for (m=0;m<1000;m++){
+	for (m=0;m<100;m++){
 		ctx.fillStyle = "#000";
 		if (Math.random()>.5){
 	        	ctx.fillStyle = "#fff";
 		}
+		for (n=0;n<100;n++){
 	        point(Math.random()*40,Math.random()*40);
+		}
 	}
     }
 
