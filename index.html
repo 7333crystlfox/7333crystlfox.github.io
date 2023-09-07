@@ -23,14 +23,14 @@
         ctx.fillStyle = "#fff";
         for(i=0;i<400;i+=s){
             for(j=0;j<400;j+=s){
-                ctx.fillRect(i,j,s-1,s-1);
+                ctx.fillRect(round(i),round(j),s-1,s-1);
             }
         }
     }
 
     function point(x,y){
         ctx.fillStyle = "#f00";
-	    ctx.fillRect((x*scale)-1,(y*scale)-1,1,1);
+	    ctx.fillRect(round((x*scale)-1),round((y*scale)-1),1,1);
     }
     
     function redis (x,y){
