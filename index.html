@@ -10,17 +10,63 @@
   <div class="scanlines"></div>
   <div class="scanline"></div>
   <div class="page" style="text-align: center;" width="300px">
-    <div class="head">
-      <h1 style="text-align: center; padding:10px;">Under Construction</h1>
-    </div>
-    <div class="col">
-      <div class="qn">
-        <h6 style="text-align: center;"><a href="https://www.pixilart.com/lonly"><img src="https://art.pixilart.com/sr27e99b64105aws3.png"></a><a href="https://github.com/7333crystlfox"><img src="https://art.pixilart.com/sr2d476b86b3eaws3.png"></a></h6>
-      </div>
-      <div class="main">
-        <p style="text-align: start;"> &gt; Content coming someday &lt;3 <i class="blink">_</i></p>
-      </div>
-      </div>
+    <canvas id="c" width="400" height="400"></canvas>
+<script>
+    const canvas = document.getElementById("c");
+    const ctx = canvas.getContext("2d");
+
+    scale = 10
+
+    function grid(s){
+        ctx.fillStyle = "#000";
+	    ctx.fillRect(0,0,400,400);
+        ctx.fillStyle = "#fff";
+        for(i=0;i<400;i+=s){
+            for(j=0;j<400;j+=s){
+                ctx.fillRect(i,j,s-1,s-1);
+            }
+        }
+    }
+
+    function point(x,y){
+        ctx.fillStyle = "#f00";
+	    ctx.fillRect((x*scale)-1,(y*scale)-1,1,1);
+    }
+    
+    function redis (x,y){
+        x = Math.abs(x)%1
+        y = Math.abs(y)%1
+        if(y>x){
+            d = (1-y)+.5;
+            return d;
+        }
+        if(x>y){
+            d = (1-x)+.5;
+            return d;
+        }
+    }
+
+    function r(x,y,d){
+        xx = Math.sin(Math.PI*d);
+        yy = Math.cos(Math.PI*d);
+        ox = x
+        oy = y
+        xp = x+xx;
+        yp = y+yy;
+        d = redis(xp-ox,yp-oy);
+        for(j=0;j<10;j+= d){
+            d = redis(xp-ox,yp-oy);
+            xp += xx*d
+            yp += yy*d
+            point(xp,yp);
+        }
+    }
+
+    grid(scale);
+    for(i=0;i<2;i+=0.01){
+        r(10,10,i)
+    }
+</script>
   </div>
   </body>
 </html>
