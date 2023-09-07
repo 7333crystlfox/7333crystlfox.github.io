@@ -10,46 +10,7 @@
   <div class="scanlines"></div>
   <div class="scanline"></div>
   <div class="cpage" style="text-align: center;" width="300px">
-    <canvas id="c" width="400" height="400"></canvas>
-<script>
-    const canvas = document.getElementById("c");
-    const ctx = canvas.getContext("2d");
-
-    scale = 10
-
-    function grid(s){
-        ctx.fillStyle = "#000";
-	    ctx.fillRect(0,0,400,400);
-        ctx.fillStyle = "#fff";
-        for(i=0;i<400;i+=s){
-            for(j=0;j<400;j+=s){
-                ctx.fillRect(Math.round(i),Math.round(j),s-1,s-1);
-            }
-        }
-    }
-
-    function point(x,y){
-	ctx.fillRect(Math.round((x*scale)-1),Math.round((y*scale)-1),1,1);
-    }
-
-    function r(){
-	for (m=0;m<10;m++){
-		ctx.fillStyle = "#000";
-		if (Math.random()>.5){
-	        	ctx.fillStyle = "#fff";
-		}
-		for (n=0;n<10;n++){
-		x = Math.random()*40
-		y = Math.random()*40
-	        ctx.fillRect(Math.round((x*scale)-1),Math.round((y*scale)-1),10,10);
-		}
-	}
-    }
-
-    grid(scale);
-    r();
-    setInterval(r,0);
-</script>
+	
   </div>
   </body>
 </html>
