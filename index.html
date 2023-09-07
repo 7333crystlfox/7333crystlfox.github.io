@@ -33,15 +33,11 @@
     }
 
     function r(){
-	for(m=0;m<20;m+=Math.random()+0.5){
-            for(n=0;n<20;n+=Math.random()+0.5){
-	        ctx.fillStyle = "#000";
-		if (Math.random()>.5){
-                    ctx.fillStyle = "#fff";
-		}
-                point(m,n);
-	    }
+	ctx.fillStyle = "#000";
+	if (Math.random()>.5){
+        	ctx.fillStyle = "#fff";
 	}
+        point(Math.random()*30,Math.random()*30);
     }
 
     grid(scale);
