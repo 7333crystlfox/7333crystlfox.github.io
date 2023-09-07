@@ -33,13 +33,13 @@
     }
 
     function r(){
-	for(m=0;m<10;m+=0.1){
-            for(n=0;n<10;n+=0.1){
-	        ctx.fillStyle = "#0ff";
+	for(m=0;m<100;m+=0.1){
+            for(n=0;n<100;n+=0.1){
+	        ctx.fillStyle = "#000";
 		if (Math.random()>.5){
-                    ctx.fillStyle = "#f0f";
+                    ctx.fillStyle = "#fff";
 		}
-                point(m+5,n+5);
+                point(m,n);
 	    }
 	}
     }
