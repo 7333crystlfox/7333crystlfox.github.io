@@ -29,30 +29,20 @@
     }
 
     function point(x,y){
-        ctx.fillStyle = "#f00";
-	    ctx.fillRect(Math.round((x*scale)-1),Math.round((y*scale)-1),1,1);
+	ctx.fillRect(Math.round((x*scale)-1),Math.round((y*scale)-1),1,1);
     }
 
-    function r(x,y,d){
-        xx = Math.sin(Math.PI*d);
-        yy = Math.cos(Math.PI*d);
-        ox = x
-        oy = y
-        xp = x+xx;
-        yp = y+yy;
-        d = 1
-        for(j=0;j<10;j+= d){
-            d = 1
-            xp += xx*d
-            yp += yy*d
-            point(xp,yp);
-        }
+    function r(){
+	ctx.fillStyle = "#f0f";
+	for(m=0;m<10;m++){
+            for(n=0;n<10;n++){
+                point(m+5,n+5);
+	    }
+	}
     }
 
     grid(scale);
-    for(i=0;i<2;i+=0.01){
-        r(10,10,i)
-    }
+    r();
 </script>
   </div>
   </body>
