@@ -32,19 +32,6 @@
         ctx.fillStyle = "#f00";
 	    ctx.fillRect(Math.round((x*scale)-1),Math.round((y*scale)-1),1,1);
     }
-    
-    function redis (x,y){
-        x = Math.abs(x)%1
-        y = Math.abs(y)%1
-        if(y>x){
-            d = (1-y)+.5;
-            return d;
-        }
-        if(x>y){
-            d = (1-x)+.5;
-            return d;
-        }
-    }
 
     function r(x,y,d){
         xx = Math.sin(Math.PI*d);
@@ -53,9 +40,9 @@
         oy = y
         xp = x+xx;
         yp = y+yy;
-        d = redis(xp-ox,yp-oy);
+        d = 1
         for(j=0;j<10;j+= d){
-            d = redis(xp-ox,yp-oy);
+            d = 1
             xp += xx*d
             yp += yy*d
             point(xp,yp);
