@@ -41,8 +41,7 @@
 		for (n=0;n<100;n++){
 		x = Math.random()*40
 		y = Math.random()*40
-	        point(x,y);
-		point(x+1,y);
+	        ctx.fillRect(Math.round((x*scale)-1),Math.round((y*scale)-1),10,1);
 		}
 	}
     }
